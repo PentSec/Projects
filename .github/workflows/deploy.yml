@@ -33,3 +33,9 @@ jobs:
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v4
+
+    add-secret:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Inject secret token
+              run: echo "LOVE_MY_CAT=${{ secrets.LOVE_MY_CAT }}" >> .env.production
