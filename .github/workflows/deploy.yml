@@ -17,6 +17,8 @@ jobs:
             - name: Checkout your repository using git
               uses: actions/checkout@v4
             - name: Install, build, and upload your site
+              env:
+                  LOVE_MY_CAT: ${{ secrets.LOVE_MY_CAT }}
               uses: withastro/action@v2
               with:
                   node-version: 20
@@ -33,9 +35,3 @@ jobs:
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v4
-
-    add-secret:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Inject secret token
-              run: echo "LOVE_MY_CAT=${{ secrets.LOVE_MY_CAT }}" >> .env.production
