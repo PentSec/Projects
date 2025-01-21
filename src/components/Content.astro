@@ -5,50 +5,37 @@ const repos = await getGitHubRepos(repoIds)
 ---
 
 <div class="w-full flex flex-col items-center gap-2">
-    <h2 class="text-center text-2xl font-bold font-poppins">Embrace Daily Growth</h2>
-    <article class="grid grid-cols-[repeat(auto-fill,minmax(15rem,1fr))] gap-4">
+    <h2 class="text-center text-2xl font-bold font-poppins mb-9">Embrace Daily Growth</h2>
+    <article
+        class="grid grid-cols-[repeat(auto-fill,minmax(15rem,1fr))] gap-4 article-container animate-slideInUp"
+    >
         {
             repos.map((repo, index) => (
-                <section
-                    class="w-full border border-gray-700 rounded-lg shadow-md overflow-hidden h-full section-animation"
-                    style={`animation-delay: ${index * 0.2}s`}
-                >
+                <section class="w-full border border-gray-700 rounded-lg shadow-md overflow-hidden h-full transform-gpu transition duration-300 ease-out hover:scale-[1.03] hover:-rotate-2">
                     <a
                         href={repo.homepage}
                         target="_blank"
                         rel="noopener"
-                        class="block overflow-hidden group"
+                        class="block overflow-hidden"
                     >
                         <img
                             src={`/Projects/images/${repo.id}.png`}
                             alt={repo.name}
-                            class="min-w-full h-40 object-cover transition-transform duration-500 group-hover:scale-110 group-hover:translate-y-[-10px]"
+                            class="min-w-full h-40 object-cover transition-transform duration-500 hover:scale-110 hover:translate-y-[-10px]"
                         />
                     </a>
                     <div class="p-4 flex flex-col gap-2 flex-grow h-72">
-                        <h2 class="text-xl font-bold font-playwrite">{repo.name}</h2>
+                        <h2 class="text-lg font-bold font-playwrite mb-4">{repo.name}</h2>
                         <p class="text-sm text-gray-300 font-poppins">{repo.description}</p>
                         <div class="mt-auto">
                             <a
                                 href={repo.html_url}
                                 target="_blank"
                                 rel="noopener"
-                                class="relative before:absolute before:content-[''] before:left-0 before:bottom-[-5px] before:h-[1.25px] before:w-0 before:bg-[repeating-linear-gradient(to_right,var(--dot-color,rgba(255,255,255,0.75)),var(--dot-color,rgba(255,255,255,0.75))_2px,transparent_2px,transparent_3px)] before:transition-all before:duration-300 before:ease-in-out hover:before:w-full w-fit text-sm text-emerald-400 hover:text-emerald-600"
+                                class="relative before:absolute before:content-[''] before:left-0 before:bottom-[-5px] before:h-[1.25px] before:w-0 before:bg-[repeating-linear-gradient(to_right,var(--dot-color,rgba(255,255,255,0.75)),var(--dot-color,rgba(255,255,255,0.75))_2px,transparent_2px,transparent_3px)] before:transition-all before:duration-300 before:ease-in-out hover:before:w-full w-fit text-sm text-emerald-400"
                             >
                                 View on Github
                             </a>
-                        </div>
-                    </div>
-                    <div class="flex justify-between gap-y-2 text-xs p-4 text-gray-400">
-                        <div class="flex flex-col items-start">
-                            <span>Created At</span>
-                            <p class="flex flex-col">{repo.created_at.toString().slice(0, 10)}</p>
-                        </div>
-                        <div class="flex flex-col items-end">
-                            <span>Updated At</span>
-                            <p class="flex flex-col text-right">
-                                {repo.updated_at.toString().slice(0, 10)}
-                            </p>
                         </div>
                     </div>
                 </section>
@@ -56,20 +43,3 @@ const repos = await getGitHubRepos(repoIds)
         }
     </article>
 </div>
-
-<style>
-    @keyframes fadeInUp {
-        0% {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .section-animation {
-        animation: fadeInUp 1.8s ease-out forwards;
-    }
-</style>

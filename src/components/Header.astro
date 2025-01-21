@@ -2,61 +2,14 @@
 const thisYear = new Date().getFullYear()
 ---
 
-<header class="flex flex-col items-center text-center justify-center py-8 mt-24">
+<header class="flex flex-col items-center text-center justify-center py-8 mt-44 mb-20">
     <main>
-        <h1 class="text-3xl lg:text-7xl font-bold text-white mb-4 font-playwrite h1-animation">
+        <h1 class="text-3xl lg:text-7xl font-bold text-white mb-4 font-playwrite animate-slideDown">
             Featured Projects
         </h1>
-        <p class="lg:text-xl text-white font-poppins description-animation">
+        <p class="lg:text-xl text-white font-poppins animate-slideInLeft">
             Discover a curated selection of my most impactful work from 2024 to {thisYear},
             showcasing creativity and functionality in action
         </p>
-        <a
-            href="https://jeff.is-a.dev/dc"
-            class="relative before:absolute before:content-[''] before:left-0 before:bottom-[-5px] before:h-[1.25px] before:w-0 before:bg-[repeating-linear-gradient(to_right,var(--dot-color,rgba(255,255,255,0.75)),var(--dot-color,rgba(255,255,255,0.75))_2px,transparent_2px,transparent_3px)] before:transition-all before:duration-300 before:ease-in-out hover:before:w-full w-fit text-emerald-400 hover:text-emerald-600 flex items-center gap-2 mx-auto font-bold link-animation"
-        >
-            <span> Contact Me </span>
-            <img
-                src="/Projects/images/Discord.svg"
-                alt="Discord"
-                class="transition-all duration-300 ease-in-out hover:scale-110 w-4 h-4"
-            />
-        </a>
     </main>
 </header>
-
-<style>
-    @keyframes slideDown {
-        0% {
-            transform: translateY(-50px);
-            opacity: 0;
-        }
-        100% {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-
-    @keyframes slideInLeft {
-        0% {
-            transform: translateX(-100%);
-            opacity: 0;
-        }
-        100% {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-
-    .h1-animation {
-        animation: slideDown 2s ease-out forwards;
-    }
-
-    .description-animation {
-        animation: slideInLeft 2s ease-out forwards;
-    }
-
-    .link-animation {
-        animation: slideInLeft 2s ease-out 0.5s forwards;
-    }
-</style>
