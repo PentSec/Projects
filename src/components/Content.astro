@@ -11,7 +11,7 @@ const repos = await getGitHubRepos(repoIds)
     >
         {
             repos.map((repo, index) => (
-                <section class="w-full border border-gray-700 rounded-lg shadow-md overflow-hidden h-full transform-gpu transition duration-300 ease-out hover:scale-[1.03] hover:-rotate-2">
+                <section class="w-auto border border-gray-700 rounded-lg shadow-md overflow-hidden h-full transform-gpu transition duration-300 ease-out hover:scale-[1.03] hover:-rotate-2">
                     <a
                         href={repo.homepage}
                         target="_blank"
@@ -24,9 +24,11 @@ const repos = await getGitHubRepos(repoIds)
                             class="min-w-full h-40 object-cover transition-transform duration-500 hover:scale-110 hover:translate-y-[-10px]"
                         />
                     </a>
-                    <div class="p-4 flex flex-col gap-2 flex-grow h-72">
-                        <h2 class="text-lg font-bold font-playwrite mb-4">{repo.name}</h2>
-                        <p class="text-sm text-gray-300 font-poppins">{repo.description}</p>
+                    <div class="p-4 flex flex-col gap-2 grow h-72">
+                        <h3 class="text-lg font-medium font-playwrite mb-4">{repo.name}</h3>
+                        <p class="text-sm text-gray-300 font-poppins prose-invert">
+                            {repo.description}
+                        </p>
                         <div class="mt-auto">
                             <a
                                 href={repo.html_url}
